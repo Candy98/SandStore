@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">SandStore</string>
+    <string name="the_minimum_password_length_is_6_characters_and_must_contain_at_least_one_lowercase_letter_1_capital_letter_1_number_and_one_special_character">The minimum password length is 6 characters and must contain at least one lowercase letter, 1 capital letter, 1 number and one special character</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_up_to_continue">Sign-Up To Continue</string>
+</resources>

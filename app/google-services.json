@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1061610265248",
+    "project_id": "sandstore-89b21",
+    "storage_bucket": "sandstore-89b21.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1061610265248:android:96bbee99558721696187c5",
+        "android_client_info": {
+          "package_name": "com.sanddev.sandstore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1061610265248-r7d7947435q0u2na070mbkqhhcekr7ls.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlLkCnlwWcAMoNLYTV_U03R0FpUEvJ_bU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1061610265248-r7d7947435q0u2na070mbkqhhcekr7ls.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

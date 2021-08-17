@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="@dimen/_10sdp"
+    android:layout_marginEnd="@dimen/_10sdp"
+    tools:context=".activities.LoginActivity">
+
+    <ImageView
+        android:id="@+id/Logo"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/logo"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/liEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/liEmail"
+        app:layout_constraintTop_toBottomOf="@id/Logo">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_bold"
+            android:text="Welcome"
+            android:textColor="@color/nero"
+            android:textSize="@dimen/_12ssp"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:fontFamily="@font/raleway_regular"
+            android:text="Sign In To Continue"
+            android:textColor="@color/nero"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="normal"
+
+            />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gdHori"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/liEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColorHint="@color/gray_text_color"
+        app:layout_constraintBottom_toTopOf="@id/tvCharCount"
+        app:startIconDrawable="@drawable/ic_round_email_24"
+        app:startIconTint="@color/primaryColor">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etMail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_regular"
+            android:hint="E-Mail Address"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"
+            android:maxLength="10"
+
+            android:textColor="@color/nero"
+            android:textColorHint="@color/gray_text_color"
+            android:textCursorDrawable="@null"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="normal"
+            app:backgroundTint="@android:color/white" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvCharCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:singleLine="true"
+        android:text="0/10"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_10ssp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/gdHori"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ilPwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:fontFamily="@font/raleway_regular"
+        android:textColorHint="@color/gray_text_color"
+        android:textStyle="normal"
+        app:layout_constraintTop_toBottomOf="@id/gdHori"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/primaryColor"
+        app:startIconDrawable="@drawable/ic_round_lock_24"
+        app:startIconTint="@color/primaryColor">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etPwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_regular"
+            android:hint="Password"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:textColor="@color/nero"
+            android:textColorHint="@color/gray_text_color"
+            android:textCursorDrawable="@null"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="normal"
+            app:backgroundTint="@android:color/white" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvMinimumChar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/raleway_regular"
+        android:text="@string/the_minimum_password_length_is_6_characters_and_must_contain_at_least_one_lowercase_letter_1_capital_letter_1_number_and_one_special_character"
+        android:textColor="@color/nero"
+        android:textSize="@dimen/_10ssp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ilPwd" />
+
+    <Button
+        android:id="@+id/btSubmit"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_36sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/bg_btn"
+        android:fontFamily="@font/raleway_bold"
+        android:scaleType="fitCenter"
+        android:text="Sign In"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvMinimumChar" />
+
+    <LinearLayout
+        android:id="@+id/llDontHaveAnAcct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/btSubmit">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_regular"
+            android:text="Don't Have An Account?"
+            android:textColor="@color/nero"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="bold"
+
+            />
+
+        <TextView
+            android:id="@+id/tvSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:fontFamily="@font/raleway_regular"
+            android:text="@string/sign_up"
+            android:textColor="@color/primaryColor"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="bold"
+
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="@font/raleway_bold"
+        android:text="Forgot Password?"
+        android:textColor="@color/primaryColor"
+        android:textSize="@dimen/_10ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llDontHaveAnAcct" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
