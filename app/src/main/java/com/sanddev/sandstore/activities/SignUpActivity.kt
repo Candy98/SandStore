@@ -32,9 +32,7 @@ class SignUpActivity : BaseActivity() {
     private fun onClicks() {
 
         tvLogin.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
-
+        onBackPressed()
         }
 
         toolBar.setNavigationOnClickListener {
@@ -52,10 +50,13 @@ class SignUpActivity : BaseActivity() {
     }
 
     private fun reqRegisterWithFirebase() {
+        showProgressDialog()
         FirebaseAuth.getInstance()
             .createUserWithEmailAndPassword(etEmail.getTrimmedText(), etPwd.getTrimmedText())
             .addOnCompleteListener {
+                hideProgressDialog()
                 if (it.isSuccessful){
+                    hideProgressDialog()
                     Toast.makeText(this,"You are registered",Toast.LENGTH_LONG).show()
                     finishAffinity()
                     startActivity(Intent(this,HomeActivity::class.java))
@@ -63,6 +64,7 @@ class SignUpActivity : BaseActivity() {
                 }
             }
             .addOnFailureListener {
+                hideProgressDialog()
                 showErrorSnackBar(it.message.toString(),true)
             }
     }

@@ -78,7 +78,7 @@
             android:hint="E-Mail Address"
             android:imeOptions="actionNext"
             android:inputType="textEmailAddress"
-            android:maxLength="10"
+            android:maxLength="50"
 
             android:textColor="@color/nero"
             android:textColorHint="@color/gray_text_color"

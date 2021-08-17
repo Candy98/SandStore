@@ -10,6 +10,9 @@
         <entry key="..\:/Projects/SandStore/app/src/main/res/layout/activity_sign_up.xml" value="0.20416666666666666" />
         <entry key="..\:/Projects/SandStore/app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="..\:/Projects/SandStore/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2203125" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.11" />
+        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/dialog_progress.xml" value="0.22" />
       </map>
     </option>
   </component>
