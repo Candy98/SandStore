@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.text.TextUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.sanddev.sandstore.R
+import com.sanddev.sandstore.firestore.FireStoreUtils
+import com.sanddev.sandstore.models.User
 import com.sanddev.sandstore.utils.Utilities.Companion.getTrimmedText
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -22,10 +24,14 @@ class LoginActivity : BaseActivity() {
             startActivity(Intent(this, SignUpActivity::class.java))
 
         }
+
         btSubmit.setOnClickListener {
             if (validateUserEntries()) {
                 reqUserLogin()
             }
+        }
+        tvFgPwd.setOnClickListener {
+            startActivity(Intent(this,ForgotPasswordActivity::class.java))
         }
     }
 
@@ -35,11 +41,12 @@ class LoginActivity : BaseActivity() {
         val password = etPwd.getTrimmedText()
         FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
             .addOnCompleteListener {
-                hideProgressDialog()
                 if (it.isSuccessful) {
                     showErrorSnackBar("You are logged in successfully", false)
+                    FireStoreUtils().getUserDetails(this)
 
                 } else {
+                    hideProgressDialog()
                     showErrorSnackBar(it.exception?.message.toString(), true)
 
                 }
@@ -70,6 +77,14 @@ class LoginActivity : BaseActivity() {
                 true
             }
         }
+
+    }
+
+    fun userLoggedInSuccess(user: User?) {
+        hideProgressDialog()
+        println(" I am email : ${user?.email}")
+        println(" I am name : ${user?.name}")
+
 
     }
 }

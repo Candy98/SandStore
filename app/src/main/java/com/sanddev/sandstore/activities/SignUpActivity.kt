@@ -1,12 +1,14 @@
 package com.sanddev.sandstore.activities
 
-import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.sanddev.sandstore.R
+import com.sanddev.sandstore.firestore.FireStoreUtils
+import com.sanddev.sandstore.models.User
 import com.sanddev.sandstore.utils.Utilities.Companion.getTrimmedText
+import com.sanddev.sandstore.utils.Utilities.Companion.showToast
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
 class SignUpActivity : BaseActivity() {
@@ -56,17 +58,27 @@ class SignUpActivity : BaseActivity() {
             .addOnCompleteListener {
                 hideProgressDialog()
                 if (it.isSuccessful){
-                    hideProgressDialog()
                     Toast.makeText(this,"You are registered",Toast.LENGTH_LONG).show()
-                    finishAffinity()
-                    startActivity(Intent(this,HomeActivity::class.java))
+                    val fbUser=it.result?.user
+                    val user = User(
+                        fbUser!!.uid,
+                        etName.text.toString().trim { it <= ' ' },
+                        etEmail.text.toString().trim { it <= ' ' }
+                    )
 
+                    FireStoreUtils().registerUserToFirestore(this,user)
+                }else{
+                    hideProgressDialog()
+                    showErrorSnackBar(it.exception?.message.toString(),true)
                 }
             }
-            .addOnFailureListener {
-                hideProgressDialog()
-                showErrorSnackBar(it.message.toString(),true)
-            }
+    }
+
+     fun registerUserSuccess() {
+        hideProgressDialog()
+        "User Registration Success".showToast(this)
+
+
     }
 
     private fun validateUserEntries(): Boolean {

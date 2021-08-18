@@ -5,5 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.HomeActivity">
-
+<com.google.android.material.bottomnavigation.BottomNavigationView
+    android:id="@+id/homeBottomNavigation"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintBoFttom_toBottomOf="parent"
+    app:menu="@menu/bottom_nav_menu"
+    />
 </androidx.constraintlayout.widget.ConstraintLayout>
